@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate') -%>
+    <div>
+        <h1>New post </h1>
+        <form method="POST" id="postEditForm" action="/post/<%=post.id%>?_method=PUT"  enctype="multipart/form-data">
+           <div><input type="text" name="post[title]"   placeholder="title" value="<%=post.title%>"></div>
+            <div><input type="number" name="post[price]" step=".01"  placeholder="price" value="<%=post.price%>"></div>
+                <div><input type="text" name="post[location]"    placeholder="location" value="<%=post.location%>"></div>
+                  <div><input type="file" accept="images/*" id="imageUpload" name="images" multiple /></div>
+                  <div><textarea name="post[description]" placeholder="Description"><%=post.description%></textarea></div>
+
+                  <div>
+                      <% for (let [i, images] of post.images.entries()){%>
+                        <img src="<%= images.path %>" alt="Surf Images" width="60px">
+                        <label for="images<%= i %>">Delete?</label>
+                        <input type="checkbox" name="deleteImages[]" class="imageDeleteCheckBox" id="images<%= i %>" value="<%= images.filename %>">
+
+                      <%}%>
+                  </div>
+              <div><button>UPDATE</button></div>
+        </form>
+    </div>
+    <script src="/javascripts/post-edit.js"></script>
+
+
+

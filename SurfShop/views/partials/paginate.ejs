@@ -1,0 +1,20 @@
+<div style="margin: 20px 0;">
+    <%if(post.page -1){%>
+   <a href="<%= paginateUrl %> <%= post.page -1 %> ">Prev</a>
+    <% } %>
+  <% if(post.pages >1 && post.docs.length){%>
+<% for(let i=1; i <= post.pages; i++){ %>
+        <% if(post.page==i){%>
+            <a style="color: red;" href="<%= paginateUrl %> <%=i%>"><%=i%></a>
+           
+           <%  } else{%>
+            <a href="<%= paginateUrl %> <%=i%>"><%=i%></a>
+            <% }%> 
+    <% } %>
+
+    <%}%>
+    
+    <%if((post.page) + 1 <= post.pages){%>
+        <a href="<%= paginateUrl %> <%=post.page + 1%>">Next</a>
+            <%}%>
+</div>
