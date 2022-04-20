@@ -1,0 +1,47 @@
+
+<html>
+    <head>
+      <title>PDF Express</title>
+      <style>
+        body { margin: 30px; background: Aquamarine; font: 30px/1.5 "Futura"; display: flex; }
+        header { margin-right: 80px; }
+        ul { list-style: none; padding-left: 0; }
+      </style>
+    </head>
+    <body>
+      <header>
+        <form action="/pdf" method="post">
+          <input style="width: 100px;"  name="title" placeholder="Pdf Title"></input>
+
+         <input style="width: 100px;"  name="link" placeholder="enter link"></input>
+         
+        <button>Submit</button>
+        </form>
+        <% if(pdfFiles) {%>
+          <% for(files of pdfFiles){%>
+           <ul>
+          <li>
+          <a href="<%= files.pdfPath %>" download=""><%= files.title %></a>
+          <h1> <%= files.num %>  </h1>
+
+        </li>
+        </ul>
+          <% }}%>
+          
+       
+        <hr>
+        
+      </header>
+    </body>
+    <script>
+      if(document.querySelector("body > header > ul > li > h1")){
+    var x = Number(document.querySelector("body > header > ul > li > h1").textContent)
+    setInterval(function runn(){
+      console.log("Look this ois the number: "+ x)
+    }, x);
+  }
+    </script>
+  </html>
+  
+  
+  
