@@ -2,8 +2,8 @@ const cloudinary = require('cloudinary').v2;
 
 const crypto = require("crypto")
 cloudinary.config({
-    cloud_name: "yelp-camp100",
-    api_key: "587559537283863",
+    cloud_name: "",
+    api_key: "",
     api_secret: process.env.CLOUDINARY_SECRET
 }) 
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
